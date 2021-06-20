@@ -24,4 +24,8 @@ public class BasePage {
     public String getSubheaderText() {
         return getSubheader().getText();
     }
+
+    public String getHeader3Text() {
+        return getHeader3().getText();
+    }
 }

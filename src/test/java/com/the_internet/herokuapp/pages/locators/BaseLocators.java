@@ -9,6 +9,7 @@ public class BaseLocators {
 
     protected static final By header1Locator = By.tagName("h1");
     protected static final By header2Locator = By.tagName("h2");
+    protected static final By header3Locator = By.tagName("h3");
     protected static final By listElement = By.tagName("li");
     protected static final By anchor = By.tagName("a");
 
@@ -18,6 +19,10 @@ public class BaseLocators {
 
     public static WebElement getSubheader() {
         return driver.findElement(header2Locator);
+    }
+
+    public static WebElement getHeader3() {
+        return driver.findElement(header3Locator);
     }
 
 }

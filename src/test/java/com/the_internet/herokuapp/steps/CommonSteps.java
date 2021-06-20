@@ -37,6 +37,13 @@ public class CommonSteps {
         driver.get(url);
     }
 
+    @Given("I have navigated to the 'the-internet' {string} page")
+    public void navigateTo(String pageName) {
+        String url = basePage.PAGE_URLS.get(pageName.toLowerCase());
+        driver.get(url);
+        assertEquals(url, driver.getCurrentUrl());
+    }
+
     @Then("the header text is {string}")
     public void verifyHeaderText(String expectedText) {
         String actual = basePage.getHeaderText();
@@ -46,6 +53,12 @@ public class CommonSteps {
     @Then("the sub-header text is {string}")
     public void verifySubheaderText(String expectedText) {
         String actual = basePage.getSubheaderText();
+        assertEquals(expectedText, actual);
+    }
+
+    @Then("the page title is {string}")
+    public void verifyPageTitle(String expectedText) {
+        String actual = basePage.getHeader3Text();
         assertEquals(expectedText, actual);
     }
 
