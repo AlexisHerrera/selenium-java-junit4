@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/java/com/the_internet/herokuapp/features",
         glue = "com.the_internet.herokuapp.steps",
         tags = "not @skip",
-        plugin = {"pretty", "html:target/cucumber"},
+        plugin = {"pretty", "html:target/cucumber-report.html"},
         publish = true
 )
 
