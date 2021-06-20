@@ -15,11 +15,6 @@ public class HomePageSteps {
 
     private final HomePage page = new HomePage();
 
-    @Given("I have navigated to the 'the-internet' home page")
-    public void navigateTo() {
-        driver.get(page.PAGE_URL);
-    }
-
     @When("I click on the {string} link")
     public void clickOnPageLink(String link) {
         page.clickOnPageLink(link);

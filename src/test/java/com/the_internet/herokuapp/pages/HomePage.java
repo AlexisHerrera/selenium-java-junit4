@@ -9,8 +9,6 @@ import static com.the_internet.herokuapp.pages.locators.HomePageLocators.*;
 
 public class HomePage extends BasePage {
 
-    public final String PAGE_URL = PAGE_URLS.get("Home");
-
     public int getNumSubPages() {
         return getAllSubPageListElements().size();
     }
