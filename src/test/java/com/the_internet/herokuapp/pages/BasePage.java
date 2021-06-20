@@ -1,9 +1,21 @@
 package com.the_internet.herokuapp.pages;
 
+import java.util.Map;
+
 import static com.the_internet.herokuapp.pages.locators.BaseLocators.getHeader;
 import static com.the_internet.herokuapp.pages.locators.BaseLocators.getSubheader;
 
 public class BasePage {
+
+    public final String BASE_URL = "https://the-internet.herokuapp.com";
+    public final Map<String, String> PAGE_URLS = Map.ofEntries(
+            Map.entry("Home", BASE_URL),
+            Map.entry("Checkboxes", BASE_URL + "/checkboxes"),
+            Map.entry("Dropdown", BASE_URL + "/dropdown"),
+            Map.entry("Dynamic Controls", BASE_URL + "/dynamic_controls"),
+            Map.entry("Form Authentication", BASE_URL + "/login"),
+            Map.entry("Inputs", BASE_URL + "/inputs")
+    );
 
     public String getHeaderText() {
         return getHeader().getText();

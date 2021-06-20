@@ -9,7 +9,7 @@ import static com.the_internet.herokuapp.pages.locators.HomePageLocators.*;
 
 public class HomePage extends BasePage {
 
-    public final String BASE_URL = "https://the-internet.herokuapp.com";
+    public final String PAGE_URL = PAGE_URLS.get("Home");
 
     public int getNumSubPages() {
         return getAllSubPageListElements().size();
@@ -22,5 +22,14 @@ public class HomePage extends BasePage {
             subPageNames.add(subPage.getText().split(" \\(")[0]);
         }
         return subPageNames;
+    }
+
+    public void clickOnPageLink(String pageName) {
+        for (WebElement subPage : getAllSubPageLinks()) {
+            if (subPage.getText().startsWith(pageName)) {
+                subPage.click();
+                break;
+            }
+        }
     }
 }

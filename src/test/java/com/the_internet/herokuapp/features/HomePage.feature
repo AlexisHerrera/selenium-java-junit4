@@ -1,6 +1,6 @@
 Feature: Home Page
 
-  Scenario: Dummy scenario
+  Background: Open home page
     Given I have navigated to the 'the-internet' home page
     Then the header text is "Welcome to the-internet"
     And the sub-header text is "Available Examples"
@@ -49,3 +49,14 @@ Feature: Home Page
       | Status Codes                  |
       | Typos                         |
       | WYSIWYG Editor                |
+
+  Scenario Outline: Open <page> page
+    When I click on the "<page>" link
+    Then the "<page>" page opens
+    Examples:
+      | page                |
+      | Checkboxes          |
+      | Dropdown            |
+      | Dynamic Controls    |
+      | Form Authentication |
+      | Inputs              |
