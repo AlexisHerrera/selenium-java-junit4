@@ -34,6 +34,6 @@ public class HomePageSteps {
 
     @Then("the {string} page opens")
     public void verifyPageOpens(String pageName) {
-        assertEquals(page.PAGE_URLS.get(pageName), driver.getCurrentUrl());
+        assertEquals(page.PAGE_URLS.get(pageName.toLowerCase()), driver.getCurrentUrl());
     }
 }

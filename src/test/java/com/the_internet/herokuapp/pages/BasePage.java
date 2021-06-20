@@ -9,12 +9,12 @@ public class BasePage {
 
     public final String BASE_URL = "https://the-internet.herokuapp.com";
     public final Map<String, String> PAGE_URLS = Map.ofEntries(
-            Map.entry("Home", BASE_URL),
-            Map.entry("Checkboxes", BASE_URL + "/checkboxes"),
-            Map.entry("Dropdown", BASE_URL + "/dropdown"),
-            Map.entry("Dynamic Controls", BASE_URL + "/dynamic_controls"),
-            Map.entry("Form Authentication", BASE_URL + "/login"),
-            Map.entry("Inputs", BASE_URL + "/inputs")
+            Map.entry("home", BASE_URL),
+            Map.entry("checkboxes", BASE_URL + "/checkboxes"),
+            Map.entry("dropdown", BASE_URL + "/dropdown"),
+            Map.entry("dynamic controls", BASE_URL + "/dynamic_controls"),
+            Map.entry("form authentication", BASE_URL + "/login"),
+            Map.entry("inputs", BASE_URL + "/inputs")
     );
 
     public String getHeaderText() {
