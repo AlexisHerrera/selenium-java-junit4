@@ -7,8 +7,9 @@ import static com.the_internet.herokuapp.steps.CommonSteps.driver;
 
 public class BaseLocators {
 
-    private static final By header1Locator = By.tagName("h1");
-    private static final By header2Locator = By.tagName("h2");
+    protected static final By header1Locator = By.tagName("h1");
+    protected static final By header2Locator = By.tagName("h2");
+    protected static final By listElement = By.tagName("li");
 
     public static WebElement getHeader() {
         return driver.findElement(header1Locator);

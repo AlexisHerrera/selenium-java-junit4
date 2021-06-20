@@ -7,16 +7,15 @@ import java.util.List;
 
 import static com.the_internet.herokuapp.steps.CommonSteps.driver;
 
-public class HomePageLocators {
+public class HomePageLocators extends BaseLocators {
 
     private static final By subPageList = By.xpath("//*[@id=\"content\"]/ul");
-    private static final By subPageListElement = By.tagName("li");
 
     public static WebElement getSubPageList() {
         return driver.findElement(subPageList);
     }
 
     public static List<WebElement> getAllSubPageListElements() {
-        return getSubPageList().findElements(subPageListElement);
+        return getSubPageList().findElements(listElement);
     }
 }
