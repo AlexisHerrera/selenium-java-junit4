@@ -27,9 +27,9 @@ public class HomePageSteps {
 
     @Then("a list of the following sub-pages is displayed")
     public void verifyListSubPages(DataTable dt) {
-        List<String> subPages = dt.asList();
-        assertEquals(subPages.size(), page.getNumSubPages());
-        assertEquals(subPages, page.getSubPageNames());
+        List<String> subPageNames = dt.asList();
+        assertEquals(subPageNames.size(), page.getNumSubPages());
+        assertEquals(subPageNames, page.getSubPageNames());
     }
 
     @Then("the {string} page opens")
