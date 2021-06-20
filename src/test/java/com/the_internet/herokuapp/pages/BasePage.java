@@ -1,12 +1,15 @@
 package com.the_internet.herokuapp.pages;
 
-import static com.the_internet.herokuapp.pages.locators.BasePageLocators.*;
+import static com.the_internet.herokuapp.pages.locators.BaseLocators.getHeader;
+import static com.the_internet.herokuapp.pages.locators.BaseLocators.getSubheader;
 
 public class BasePage {
 
-    public static final String BASE_URL = "https://the-internet.herokuapp.com";
+    public String getHeaderText() {
+        return getHeader().getText();
+    }
 
-    public static String getHeaderText() {
-        return getPageHeader().getText();
+    public String getSubheaderText() {
+        return getSubheader().getText();
     }
 }

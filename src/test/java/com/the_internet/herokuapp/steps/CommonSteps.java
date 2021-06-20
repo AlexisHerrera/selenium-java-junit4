@@ -16,11 +16,11 @@ import static org.junit.Assert.assertEquals;
 public class CommonSteps {
 
     public static WebDriver driver;
+    private final BasePage basePage = new BasePage();
 
     @Before
     public void setup() {
         driver = DriverManager.getDriver();
-        driver.get(BasePage.BASE_URL);
     }
 
     @After
@@ -33,13 +33,20 @@ public class CommonSteps {
     }
 
     @Given("I have navigated to {string}")
-    public void navigateTo(String url) {
+    public void navigateToUrl(String url) {
         driver.get(url);
     }
 
-    @Then("the H1 header text is {string}")
+    @Then("the header text is {string}")
     public void verifyHeaderText(String expectedText) {
-        String actual = BasePage.getHeaderText();
+        String actual = basePage.getHeaderText();
         assertEquals(expectedText, actual);
     }
+
+    @Then("the sub-header text is {string}")
+    public void verifySubheaderText(String expectedText) {
+        String actual = basePage.getSubheaderText();
+        assertEquals(expectedText, actual);
+    }
+
 }
