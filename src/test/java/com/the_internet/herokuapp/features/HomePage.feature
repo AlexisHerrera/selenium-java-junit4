@@ -1,4 +1,5 @@
 Feature: Home Page
+  Tests for the 'https://the-internet.herokuapp.com/' home page
 
   Background: Open home page
     Given I have navigated to the 'the-internet' "home" page
