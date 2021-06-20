@@ -13,7 +13,7 @@ import static com.the_internet.herokuapp.steps.CommonSteps.driver;
 
 public class HomePageSteps {
 
-    private HomePage page = new HomePage();
+    private final HomePage page = new HomePage();
 
     @Given("I have navigated to the 'the-internet' home page")
     public void navigateTo() {
