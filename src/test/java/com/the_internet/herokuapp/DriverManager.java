@@ -3,6 +3,7 @@ package com.the_internet.herokuapp;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -46,6 +47,7 @@ public class DriverManager {
         options.setHeadless(headless);
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");
+        options.setPageLoadStrategy(PageLoadStrategy.NONE);
         return new ChromeDriver(options);
     }
 
