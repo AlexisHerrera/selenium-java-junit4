@@ -2,6 +2,8 @@ Feature: Home Page
 
   Background: Open home page
     Given I have navigated to the 'the-internet' home page
+
+  Scenario: Verify home page contents are correct
     Then the header text is "Welcome to the-internet"
     And the sub-header text is "Available Examples"
     And a list of the following sub-pages is displayed
