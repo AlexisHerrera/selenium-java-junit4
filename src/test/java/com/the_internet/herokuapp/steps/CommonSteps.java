@@ -62,7 +62,7 @@ public class CommonSteps {
 
     @Then("the page title is {string}")
     public void verifyPageTitle(String expectedText) {
-        String actual = basePage.getHeader3Text();
+        String actual = basePage.getPageTitleText();
         assertEquals(expectedText, actual);
     }
 
