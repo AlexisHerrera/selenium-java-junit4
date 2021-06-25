@@ -62,4 +62,31 @@ public class CommonSteps {
         assertEquals(expectedText, actual);
     }
 
+    @Then("a {string} banner is displayed in the top-right corner of the page")
+    public void verifyGitHubForkBanner(String expectedText) {
+        final String expectedUrl = "https://github.com/tourdedave/the-internet";
+        String actualText = basePage.getGitHubForkText();
+        assertEquals(expectedText, actualText);
+        assertEquals(expectedUrl, basePage.getGitHubForkLinkUrl());
+        String[] styleAttrs = basePage.getGitHubForkImagePosition().split(";");
+        for (String attr : styleAttrs) {
+            if (attr.startsWith("position")) assertEquals("absolute", attr.split(": ")[1]);
+            if (attr.startsWith("top")) assertEquals("0px", attr.split(": ")[1]);
+            if (attr.startsWith("right")) assertEquals("0px", attr.split(": ")[1]);
+            if (attr.startsWith("border")) assertEquals("0px", attr.split(": ")[1]);
+        }
+    }
+
+    @Then("the page has a footer containing {string}")
+    public void verifyPageFooterText(String expectedText) {
+        String actual = basePage.getPageFooterText();
+        assertEquals(expectedText,actual);
+    }
+
+    @Then("the link in the page footer goes to {string}")
+    public void verifyPageFooterLinkUrl(String expectedUrl) {
+        String actual = basePage.getPageFooterLinkUrl();
+        assertEquals(expectedUrl, actual);
+    }
+
 }

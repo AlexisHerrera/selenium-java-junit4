@@ -24,7 +24,15 @@ public class BasePage {
         return getSubheader().getText();
     }
 
-    public String getHeader3Text() {
-        return getHeader3().getText();
+    public String getPageTitleText() {
+        try {
+            return getHeader3().getText();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            try {
+                return getHeader4().getText();
+            } catch (org.openqa.selenium.NoSuchElementException ex) {
+                return "No page title element found";
+            }
+        }
     }
 }

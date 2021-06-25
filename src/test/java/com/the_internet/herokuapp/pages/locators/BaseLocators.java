@@ -25,4 +25,8 @@ public class BaseLocators {
         return driver.findElement(header3Locator);
     }
 
+    public static WebElement getHeader4() {
+        return driver.findElement(header4Locator);
+    }
+
 }
