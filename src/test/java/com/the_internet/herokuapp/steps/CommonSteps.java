@@ -7,9 +7,11 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
 
@@ -41,6 +43,8 @@ public class CommonSteps {
     public void navigateTo(String pageName) {
         String url = basePage.PAGE_URLS.get(pageName.toLowerCase());
         driver.get(url);
+        new WebDriverWait(driver, 20).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
         assertEquals(url, driver.getCurrentUrl());
     }
 
