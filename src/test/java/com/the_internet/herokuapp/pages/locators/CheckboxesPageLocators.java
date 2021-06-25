@@ -9,19 +9,19 @@ import static com.the_internet.herokuapp.steps.CommonSteps.driver;
 
 public class CheckboxesPageLocators {
 
-    private static final By checkboxesForm = By.id("checkboxes");
-    private static final By checkbox = By.tagName("input");
-    private static final By checkboxLabel = By.xpath("text()");
+    private static final By checkboxesFormLocator = By.id("checkboxes");
+    private static final By checkboxLocator = By.tagName("input");
+    private static final By checkboxLabelLocator = By.xpath("text()");
 
     public static WebElement getCheckboxesForm() {
-        return driver.findElement(checkboxesForm);
+        return driver.findElement(checkboxesFormLocator);
     }
 
     public static List<WebElement> getAllCheckboxes() {
-        return getCheckboxesForm().findElements(checkbox);
+        return getCheckboxesForm().findElements(checkboxLocator);
     }
 
     public static List<WebElement> getAllCheckboxLabels() {
-        return getCheckboxesForm().findElements(checkboxLabel);
+        return getCheckboxesForm().findElements(checkboxLabelLocator);
     }
 }

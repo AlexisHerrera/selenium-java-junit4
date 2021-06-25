@@ -10,14 +10,14 @@ import static com.the_internet.herokuapp.steps.CommonSteps.driver;
 
 public class DropdownPageLocators {
 
-    private static final By dropdownList = By.id("dropdown");
-    private static final By genericDropdownList = By.tagName("select");
+    private static final By dropdownListLocator = By.id("dropdown");
+    private static final By genericDropdownListLocator = By.tagName("select");
 
     public static Select getDropdownList() {
-        return new Select(driver.findElement(dropdownList));
+        return new Select(driver.findElement(dropdownListLocator));
     }
 
     public static List<WebElement> getAllDropdownLists() {
-        return driver.findElements(genericDropdownList);
+        return driver.findElements(genericDropdownListLocator);
     }
 }

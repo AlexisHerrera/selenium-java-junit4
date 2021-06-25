@@ -10,21 +10,21 @@ import static com.the_internet.herokuapp.steps.CommonSteps.driver;
 
 public class HomePageLocators extends BaseLocators {
 
-    private static final By subPageList = By.xpath("//*[@id=\"content\"]/ul");
+    private static final By subPageListLocator = By.xpath("//*[@id=\"content\"]/ul");
 
     public static WebElement getSubPageList() {
-        return driver.findElement(subPageList);
+        return driver.findElement(subPageListLocator);
     }
 
     public static List<WebElement> getAllSubPageListElements() {
-        return getSubPageList().findElements(listElement);
+        return getSubPageList().findElements(listElementLocator);
     }
 
     public static List<WebElement> getAllSubPageLinks() {
         List<WebElement> pageList = getAllSubPageListElements();
         List<WebElement> pageLinks = new ArrayList<>();
         for (WebElement page: pageList) {
-            pageLinks.add(page.findElement(anchor));
+            pageLinks.add(page.findElement(anchorLocator));
         }
         return pageLinks;
     }
