@@ -51,7 +51,9 @@ public class FormAuthenticationPageSteps {
 
     @Then("^a (red|green) \"(.*)\" message banner is displayed$")
     public void verifyMessageBannerDisplayed(String bannerColour, String expectedMsg) {
-        String expectedBannerColour = bannerColour.equals("red") ? "rgba(198, 15, 19, 1)" : "rgba(93, 164, 35, 1)";
+        String expectedBannerColour = System.getProperty("browser", "chrome").equals("firefox")
+                ? bannerColour.equals("red") ? "rgb(198, 15, 19)" : "rgb(93, 164, 35)"
+                : bannerColour.equals("red") ? "rgba(198, 15, 19, 1)" : "rgba(93, 164, 35, 1)";
         assertTrue(page.isMessageBannerDisplayed());
         assertEquals(expectedBannerColour, page.getMessageBannerColour());
         assertEquals(expectedMsg, page.getMessageBannerText());
