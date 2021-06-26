@@ -11,6 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
@@ -68,7 +69,9 @@ public class CommonSteps {
 
     @Then("the {string} page opens")
     public void verifyPageOpens(String pageName) {
-        assertEquals(basePage.PAGE_URLS.get(pageName.toLowerCase()), driver.getCurrentUrl());
+        String expectedUrl = basePage.PAGE_URLS.get(pageName.toLowerCase());
+        new WebDriverWait(driver, 10).until(ExpectedConditions.urlToBe(expectedUrl));
+        assertEquals(expectedUrl, driver.getCurrentUrl());
     }
 
     @Then("a {string} banner is displayed in the top-right corner of the page")
