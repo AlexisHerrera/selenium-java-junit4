@@ -27,8 +27,5 @@ public class HomePageSteps {
         assertEquals(subPageNames, page.getSubPageNames());
     }
 
-    @Then("the {string} page opens")
-    public void verifyPageOpens(String pageName) {
-        assertEquals(page.PAGE_URLS.get(pageName.toLowerCase()), driver.getCurrentUrl());
-    }
+
 }

@@ -56,7 +56,7 @@ public class CommonSteps {
 
     @Then("the sub-header text is {string}")
     public void verifySubheaderText(String expectedText) {
-        String actual = basePage.getSubheaderText();
+        String actual = basePage.getHeader2Text();
         assertEquals(expectedText, actual);
     }
 
@@ -64,6 +64,11 @@ public class CommonSteps {
     public void verifyPageTitle(String expectedText) {
         String actual = basePage.getPageTitleText();
         assertEquals(expectedText, actual);
+    }
+
+    @Then("the {string} page opens")
+    public void verifyPageOpens(String pageName) {
+        assertEquals(basePage.PAGE_URLS.get(pageName.toLowerCase()), driver.getCurrentUrl());
     }
 
     @Then("a {string} banner is displayed in the top-right corner of the page")
