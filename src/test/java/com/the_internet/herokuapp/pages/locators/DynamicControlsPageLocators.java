@@ -7,7 +7,7 @@ import java.util.List;
 
 import static com.the_internet.herokuapp.steps.CommonSteps.driver;
 
-public class DynamicControlsLocators {
+public class DynamicControlsPageLocators {
 
     private static final By contentLocator = By.className("example");
     private static final By paragraphLocator = By.tagName("p");
@@ -44,7 +44,7 @@ public class DynamicControlsLocators {
     }
 
     private static WebElement getSectionForm(String sectionName) {
-        return sectionName.equals("Remove/add") ? DynamicControlsLocators.getCheckboxExampleForm() : DynamicControlsLocators.getInputExampleForm();
+        return sectionName.equals("Remove/add") ? DynamicControlsPageLocators.getCheckboxExampleForm() : DynamicControlsPageLocators.getInputExampleForm();
     }
 
     public static List<WebElement> getCheckboxesInSection(String sectionName) {

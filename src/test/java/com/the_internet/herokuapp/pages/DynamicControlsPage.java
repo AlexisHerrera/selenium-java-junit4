@@ -1,6 +1,6 @@
 package com.the_internet.herokuapp.pages;
 
-import com.the_internet.herokuapp.pages.locators.DynamicControlsLocators;
+import com.the_internet.herokuapp.pages.locators.DynamicControlsPageLocators;
 import com.the_internet.herokuapp.steps.CommonSteps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,77 +12,77 @@ import java.util.List;
 public class DynamicControlsPage extends BasePage {
 
     public String getOpeningParagraphText() {
-        return DynamicControlsLocators.getParagraph().getText();
+        return DynamicControlsPageLocators.getParagraph().getText();
     }
 
     public List<String> getSectionHeadersText() {
         List<String> headers = new ArrayList<>();
-        for (WebElement sectionHeader : DynamicControlsLocators.getSectionHeaders()) {
+        for (WebElement sectionHeader : DynamicControlsPageLocators.getSectionHeaders()) {
             headers.add(sectionHeader.getText());
         }
         return headers;
     }
 
     public int getNumHorizontalRules() {
-        return DynamicControlsLocators.getHorizontalRules().size();
+        return DynamicControlsPageLocators.getHorizontalRules().size();
     }
 
     public int getNumCheckboxesInSection(String sectionName) {
-        return DynamicControlsLocators.getCheckboxesInSection(sectionName).size();
+        return DynamicControlsPageLocators.getCheckboxesInSection(sectionName).size();
     }
 
     public int getNumInputsInSection(String sectionName) {
-        return DynamicControlsLocators.getInputsInSection(sectionName).size();
+        return DynamicControlsPageLocators.getInputsInSection(sectionName).size();
     }
 
     public int getNumButtonsInSection(String sectionName) {
-        return DynamicControlsLocators.getButtonsInSection(sectionName).size();
+        return DynamicControlsPageLocators.getButtonsInSection(sectionName).size();
     }
 
     public String getCheckboxLabel() {
-        if (DynamicControlsLocators.getCheckbox().getTagName().equals("input")) {
-            return DynamicControlsLocators.getCheckboxParent().getText();
+        if (DynamicControlsPageLocators.getCheckbox().getTagName().equals("input")) {
+            return DynamicControlsPageLocators.getCheckboxParent().getText();
         }
-        return DynamicControlsLocators.getCheckbox().getText();
+        return DynamicControlsPageLocators.getCheckbox().getText();
     }
 
     public boolean isCheckboxChecked() {
-        return DynamicControlsLocators.getCheckbox().getAttribute("checked") != null;
+        return DynamicControlsPageLocators.getCheckbox().getAttribute("checked") != null;
     }
 
     public String getInputControlText() {
-        return DynamicControlsLocators.getInputControl().getText();
+        return DynamicControlsPageLocators.getInputControl().getText();
     }
 
     public boolean isInputControlEnabled() {
-        return DynamicControlsLocators.getInputControl().isEnabled();
+        return DynamicControlsPageLocators.getInputControl().isEnabled();
     }
 
     public String getButtonText(String sectionName) {
-        return DynamicControlsLocators.getButton(sectionName).getText();
+        return DynamicControlsPageLocators.getButton(sectionName).getText();
     }
 
     public void clickButtonByText(String buttonText) {
-        DynamicControlsLocators.getButtonByText(buttonText).click();
+        DynamicControlsPageLocators.getButtonByText(buttonText).click();
     }
 
     public boolean isLoadingBarDisplayed() {
-        return DynamicControlsLocators.getLoadingBar().isDisplayed();
+        return DynamicControlsPageLocators.getLoadingBar().isDisplayed();
     }
 
     public String getLoadingBarLabel() {
-        return DynamicControlsLocators.getLoadingBar().getText();
+        return DynamicControlsPageLocators.getLoadingBar().getText();
     }
 
     public String getMessageText() {
-        return DynamicControlsLocators.getMessage().getText();
+        return DynamicControlsPageLocators.getMessage().getText();
     }
 
     public void waitForLoadingBarToDisplay() {
-        new WebDriverWait(CommonSteps.driver, 10).until(ExpectedConditions.visibilityOf(DynamicControlsLocators.getLoadingBarImg()));
+        new WebDriverWait(CommonSteps.driver, 10).until(ExpectedConditions.visibilityOf(DynamicControlsPageLocators.getLoadingBarImg()));
     }
 
     public void waitForLoadingBarToDisappear() {
-        new WebDriverWait(CommonSteps.driver, 10).until(ExpectedConditions.invisibilityOf(DynamicControlsLocators.getLoadingBarImg()));
+        new WebDriverWait(CommonSteps.driver, 10).until(ExpectedConditions.invisibilityOf(DynamicControlsPageLocators.getLoadingBarImg()));
     }
 }
