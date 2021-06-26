@@ -52,6 +52,9 @@ Feature: Home Page
       | Status Codes                  |
       | Typos                         |
       | WYSIWYG Editor                |
+    And a "Fork me on GitHub" banner is displayed in the top-right corner of the page
+    And the page has a footer containing "Powered by Elemental Selenium"
+    And the link in the page footer goes to "http://elementalselenium.com/"
 
   Scenario Outline: Open <page> page
     When I click on the "<page>" link

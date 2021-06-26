@@ -16,11 +16,14 @@ public class BaseLocators {
     public static final By imageLocator = By.tagName("img");
     public static final By parentLocator = By.xpath("./..");
 
-    public static WebElement getHeader() {
+    private static final By forkLinkLocator = By.xpath("/html/body/div[2]/a");
+    private static final By footerLocator = By.id("page-footer");
+
+    public static WebElement getHeader1() {
         return driver.findElement(header1Locator);
     }
 
-    public static WebElement getSubheader() {
+    public static WebElement getHeader2() {
         return driver.findElement(header2Locator);
     }
 
@@ -31,5 +34,22 @@ public class BaseLocators {
     public static WebElement getHeader4() {
         return driver.findElement(header4Locator);
     }
+
+    public static WebElement getGitHubForkLink() {
+        return driver.findElement(forkLinkLocator);
+    }
+
+    public static WebElement getGitHubForkImage() {
+        return getGitHubForkLink().findElement(imageLocator);
+    }
+
+    public static WebElement getPageFooter() {
+        return driver.findElement(footerLocator);
+    }
+
+    public static WebElement getPageFooterLink() {
+        return getPageFooter().findElement(anchorLocator);
+    }
+
 
 }

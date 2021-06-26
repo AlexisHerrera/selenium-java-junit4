@@ -42,4 +42,24 @@ public class BasePage {
             }
         }
     }
+
+    public String getGitHubForkText() {
+        return getGitHubForkImage().getAttribute("alt");
+    }
+
+    public String getGitHubForkLinkUrl() {
+        return getGitHubForkLink().getAttribute("href");
+    }
+
+    public String getGitHubForkImagePosition() {
+        return getGitHubForkImage().getAttribute("style");
+    }
+
+    public String getPageFooterText() {
+        return getPageFooter().getText();
+    }
+
+    public String getPageFooterLinkUrl() {
+        return getPageFooterLink().getAttribute("href");
+    }
 }

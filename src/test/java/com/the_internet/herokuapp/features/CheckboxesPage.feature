@@ -11,6 +11,9 @@ Feature: Checkboxes Page
       | checkbox 2 |
     And the 1st checkbox is unchecked
     And the 2nd checkbox is checked
+    And a "Fork me on GitHub" banner is displayed in the top-right corner of the page
+    And the page has a footer containing "Powered by Elemental Selenium"
+    And the link in the page footer goes to "http://elementalselenium.com/"
 
   Scenario Outline: Click on <ordinal> checkbox
     When I click on the <ordinal> checkbox

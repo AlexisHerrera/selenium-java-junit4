@@ -14,6 +14,9 @@ Feature: Form Authentication Page
     And a Username input is displayed
     And a Password input is displayed
     And a Login button is displayed
+    And a "Fork me on GitHub" banner is displayed in the top-right corner of the page
+    And the page has a footer containing "Powered by Elemental Selenium"
+    And the link in the page footer goes to "http://elementalselenium.com/"
 
   Scenario: Login without user credentials
     When I click the Login button
@@ -53,3 +56,6 @@ Feature: Form Authentication Page
       Welcome to the Secure Area. When you are done click logout below.
       """
     And a Logout button is displayed
+    And a "Fork me on GitHub" banner is displayed in the top-right corner of the page
+    And the page has a footer containing "Powered by Elemental Selenium"
+    And the link in the page footer goes to "http://elementalselenium.com/"
