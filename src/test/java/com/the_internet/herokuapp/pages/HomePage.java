@@ -2,38 +2,37 @@ package com.the_internet.herokuapp.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends BasePage {
 
-    private static final By subPageListLocator = By.xpath("//*[@id=\"content\"]/ul");
+    @FindBy(xpath = "//*[@id=\"content\"]/ul/li")
+    List<WebElement> allSubPages;
 
-    private WebElement getSubPageList() {
-        return driver.findElement(subPageListLocator);
+    public HomePage() {
+        super();
+        PageFactory.initElements(driver, this);
     }
 
-    public List<WebElement> getAllSubPageListElements() {
-        return getSubPageList().findElements(listElementLocator);
-    }
-
-    public List<WebElement> getAllSubPageLinks() {
-        List<WebElement> pageList = getAllSubPageListElements();
+    private List<WebElement> getAllSubPageLinks() {
         List<WebElement> pageLinks = new ArrayList<>();
-        for (WebElement page : pageList) {
+        for (WebElement page : allSubPages) {
             pageLinks.add(page.findElement(anchorLocator));
         }
         return pageLinks;
     }
 
     public int getNumSubPages() {
-        return getAllSubPageListElements().size();
+        return allSubPages.size();
     }
 
     public List<String> getSubPageNames() {
         List<String> subPageNames = new ArrayList<>();
-        for (WebElement subPage : getAllSubPageListElements()) {
+        for (WebElement subPage : allSubPages) {
             // Where a list element includes additional details in brackets e.g. login credentials exclude these from the page name
             subPageNames.add(subPage.getText().split(" \\(")[0]);
         }
