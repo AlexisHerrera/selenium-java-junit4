@@ -1,13 +1,31 @@
 package com.the_internet.herokuapp.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.the_internet.herokuapp.pages.locators.HomePageLocators.*;
-
 public class HomePage extends BasePage {
+
+    private static final By subPageListLocator = By.xpath("//*[@id=\"content\"]/ul");
+
+    private WebElement getSubPageList() {
+        return driver.findElement(subPageListLocator);
+    }
+
+    public List<WebElement> getAllSubPageListElements() {
+        return getSubPageList().findElements(listElementLocator);
+    }
+
+    public List<WebElement> getAllSubPageLinks() {
+        List<WebElement> pageList = getAllSubPageListElements();
+        List<WebElement> pageLinks = new ArrayList<>();
+        for (WebElement page : pageList) {
+            pageLinks.add(page.findElement(anchorLocator));
+        }
+        return pageLinks;
+    }
 
     public int getNumSubPages() {
         return getAllSubPageListElements().size();
