@@ -2,14 +2,12 @@ package com.the_internet.herokuapp.steps;
 
 import com.the_internet.herokuapp.pages.HomePage;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static com.the_internet.herokuapp.steps.CommonSteps.driver;
 
 public class HomePageSteps {
 
@@ -26,6 +24,5 @@ public class HomePageSteps {
         assertEquals(subPageNames.size(), page.getNumSubPages());
         assertEquals(subPageNames, page.getSubPageNames());
     }
-
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class DynamicControlsPageSteps{
+public class DynamicControlsPageSteps {
 
     DynamicControlsPage page = new DynamicControlsPage();
     String section;
@@ -44,7 +44,7 @@ public class DynamicControlsPageSteps{
     }
 
     @Then("there is a horizontal line between the sections")
-    public void verifySectionsDividedByHorizontalLine(){
+    public void verifySectionsDividedByHorizontalLine() {
         //This doesn't actually prove the horizontal line lies between the two sections but for now checking such an
         //element is present is sufficient
         assertEquals(1, page.getNumHorizontalRules());
