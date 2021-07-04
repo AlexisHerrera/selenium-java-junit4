@@ -10,6 +10,8 @@ import java.util.List;
 
 public class HomePage extends BasePage {
 
+    private static final By anchorLocator = By.tagName("a");
+
     @FindBy(xpath = "//*[@id=\"content\"]/ul/li")
     List<WebElement> allSubPages;
 

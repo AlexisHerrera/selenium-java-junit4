@@ -33,8 +33,14 @@ public class DynamicControlsPage extends BasePage {
     @FindBy(id = "checkbox")
     WebElement checkbox;
 
+    @FindBy(xpath = "//*[@id = \"checkbox\"]/..")
+    WebElement checkboxParent;
+
     @FindBy(id = "loading")
     WebElement loadingBar;
+
+    @FindBy(xpath = "//*[@id = \"loading\"]/img")
+    WebElement loadingBarImg;
 
     @FindBy(id = "message")
     WebElement message;
@@ -65,20 +71,12 @@ public class DynamicControlsPage extends BasePage {
         return getSectionForm(sectionName).findElements(buttonLocator);
     }
 
-    private WebElement getCheckboxParent() {
-        return checkbox.findElement(parentLocator);
-    }
-
     private WebElement getButton(String sectionName) {
         return getSectionForm(sectionName).findElement(buttonLocator);
     }
 
     private WebElement getButtonByText(String buttonText) {
         return driver.findElement(By.xpath(buttonByTextXpath.replace("%s", buttonText)));
-    }
-
-    private WebElement getLoadingBarImg() {
-        return loadingBar.findElement(imageLocator);
     }
 
     public String getOpeningParagraphText() {
@@ -111,7 +109,7 @@ public class DynamicControlsPage extends BasePage {
 
     public String getCheckboxLabel() {
         if (checkbox.getTagName().equals("input")) {
-            return getCheckboxParent().getText();
+            return checkboxParent.getText();
         }
         return checkbox.getText();
     }
@@ -149,10 +147,10 @@ public class DynamicControlsPage extends BasePage {
     }
 
     public void waitForLoadingBarToDisplay() {
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(getLoadingBarImg()));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(loadingBarImg));
     }
 
     public void waitForLoadingBarToDisappear() {
-        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOf(getLoadingBarImg()));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOf(loadingBarImg));
     }
 }

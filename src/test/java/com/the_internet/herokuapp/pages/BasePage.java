@@ -27,16 +27,19 @@ public abstract class BasePage {
     @FindBy(xpath = "/html/body/div[2]/a")
     static WebElement forkLink;
 
+    @FindBy(xpath = "/html/body/div[2]/a/img")
+    static WebElement forkLinkImg;
+
     @FindBy(id = "page-footer")
     static WebElement footer;
+
+    @FindBy(xpath = "//*[@id = \"page-footer\"]//a")
+    static WebElement footerLink;
 
     public BasePage() {
         PageFactory.initElements(driver, this);
     }
 
-    protected static final By anchorLocator = By.tagName("a");
-    protected static final By imageLocator = By.tagName("img");
-    protected static final By parentLocator = By.xpath("./..");
     private static final By header1Locator = By.tagName("h1");
     private static final By header2Locator = By.tagName("h2");
     private static final By header3Locator = By.tagName("h3");
@@ -77,7 +80,7 @@ public abstract class BasePage {
     }
 
     public static String getGitHubForkText() {
-        return forkLink.findElement(imageLocator).getAttribute("alt");
+        return forkLinkImg.getAttribute("alt");
     }
 
     public static String getGitHubForkLinkUrl() {
@@ -85,7 +88,7 @@ public abstract class BasePage {
     }
 
     public static String getGitHubForkImagePosition() {
-        return forkLink.findElement(imageLocator).getAttribute("style");
+        return forkLinkImg.getAttribute("style");
     }
 
     public static String getPageFooterText() {
@@ -93,6 +96,6 @@ public abstract class BasePage {
     }
 
     public static String getPageFooterLinkUrl() {
-        return footer.findElement(anchorLocator).getAttribute("href");
+        return footerLink.getAttribute("href");
     }
 }
