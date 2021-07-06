@@ -10,6 +10,10 @@ import java.util.List;
 
 public class HomePage extends BasePage {
 
+    @FindBy(tagName = "h1")
+    WebElement pageTitle;
+
+
     @FindBy(xpath = "//*[@id=\"content\"]/ul/li")
     List<WebElement> allSubPages;
 
@@ -19,6 +23,11 @@ public class HomePage extends BasePage {
     public HomePage() {
         super();
         PageFactory.initElements(driver, this);
+    }
+
+    @Override
+    public String getPageTitleText() {
+        return pageTitle.getText();
     }
 
     public int getNumSubPages() {

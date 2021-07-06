@@ -1,6 +1,5 @@
 package com.the_internet.herokuapp.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,44 +39,7 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    private static final By header1Locator = By.tagName("h1");
-    private static final By header2Locator = By.tagName("h2");
-    private static final By header3Locator = By.tagName("h3");
-    private static final By header4Locator = By.tagName("h4");
-
-    public static String getHeaderText() {
-        return driver.findElement(header1Locator).getText();
-    }
-
-    public static String getHeader2Text() {
-        return driver.findElement(header2Locator).getText();
-    }
-
-    private static String getHeader3Text() {
-        return driver.findElement(header3Locator).getText();
-    }
-
-    private static String getHeader4Text() {
-        return driver.findElement(header4Locator).getText();
-    }
-
-    public static String getPageTitleText() {
-        // As there is no consistency in terms of the heaading level used for the page titles across the various pages
-        // use a nested try-catch block to find the right heading to use as the page title
-        try {
-            return getHeader2Text();
-        } catch (org.openqa.selenium.NoSuchElementException e1) {
-            try {
-                return getHeader3Text();
-            } catch (org.openqa.selenium.NoSuchElementException e2) {
-                try {
-                    return getHeader4Text();
-                } catch (org.openqa.selenium.NoSuchElementException e3) {
-                    return "No page title element found";
-                }
-            }
-        }
-    }
+    public abstract String getPageTitleText();
 
     public static String getGitHubForkText() {
         return forkLinkImg.getAttribute("alt");

@@ -1,7 +1,7 @@
 package com.the_internet.herokuapp.steps;
 
 import com.the_internet.herokuapp.DriverManager;
-import com.the_internet.herokuapp.pages.BasePage;
+import com.the_internet.herokuapp.pages.*;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.assertEquals;
 
 public class CommonSteps {
+
+    String page;
 
     @Before
     public void setup() {
@@ -43,6 +45,7 @@ public class CommonSteps {
         new WebDriverWait(BasePage.driver, 20).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
         assertEquals(url, BasePage.driver.getCurrentUrl());
+        page = pageName;
     }
 
     @Then("the header text is {string}")
@@ -59,7 +62,7 @@ public class CommonSteps {
 
     @Then("the page title is {string}")
     public void verifyPageTitle(String expectedText) {
-        String actual = BasePage.getPageTitleText();
+        String actual = getPage().getPageTitleText();
         assertEquals(expectedText, actual);
     }
 
@@ -95,6 +98,22 @@ public class CommonSteps {
     public void verifyPageFooterLinkUrl(String expectedUrl) {
         String actual = BasePage.getPageFooterLinkUrl();
         assertEquals(expectedUrl, actual);
+    }
+
+    private BasePage getPage() {
+        switch (page.toLowerCase()) {
+            case "home":
+                return new HomePage();
+            case "checkboxes":
+                return new CheckboxesPage();
+            case "dropdown":
+                return new DropdownPage();
+            case "dynamic controls":
+                return new DynamicControlsPage();
+            case "form authentication":
+                return new FormAuthenticationPage();
+        }
+        return null;
     }
 
 }

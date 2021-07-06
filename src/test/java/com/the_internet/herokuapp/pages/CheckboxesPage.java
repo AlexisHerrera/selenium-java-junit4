@@ -9,6 +9,9 @@ import java.util.List;
 
 public class CheckboxesPage extends BasePage {
 
+    @FindBy(tagName = "h3")
+    WebElement pageTitle;
+
     @FindBy(id = "checkboxes")
     WebElement checkboxesForm;
 
@@ -18,6 +21,11 @@ public class CheckboxesPage extends BasePage {
     public CheckboxesPage() {
         super();
         PageFactory.initElements(driver, this);
+    }
+
+    @Override
+    public String getPageTitleText() {
+        return pageTitle.getText();
     }
 
     public int getNumCheckboxes() {

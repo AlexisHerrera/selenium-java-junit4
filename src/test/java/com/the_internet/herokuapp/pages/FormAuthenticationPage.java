@@ -2,8 +2,12 @@ package com.the_internet.herokuapp.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class FormAuthenticationPage extends BasePage {
+
+    @FindBy(tagName = "h2")
+    WebElement pageTitle;
 
     @FindBy(className = "subheader")
     WebElement openingParagraph;
@@ -28,6 +32,16 @@ public class FormAuthenticationPage extends BasePage {
 
     @FindBy(className = "button")
     WebElement logoutButton;
+
+    public FormAuthenticationPage() {
+        super();
+        PageFactory.initElements(driver, this);
+    }
+
+    @Override
+    public String getPageTitleText() {
+        return pageTitle.getText();
+    }
 
     public String getOpeningParagraphText() {
         return openingParagraph.getText();

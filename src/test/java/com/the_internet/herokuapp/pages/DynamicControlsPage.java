@@ -12,6 +12,9 @@ import java.util.List;
 
 public class DynamicControlsPage extends BasePage {
 
+    @FindBy(tagName = "h4")
+    WebElement pageTitle;
+
     @FindBy(tagName = "p")
     WebElement paragraph;
 
@@ -48,6 +51,11 @@ public class DynamicControlsPage extends BasePage {
     public DynamicControlsPage() {
         super();
         PageFactory.initElements(driver, this);
+    }
+
+    @Override
+    public String getPageTitleText() {
+        return pageTitle.getText();
     }
 
     private static final By checkboxLocator = By.xpath("//input[@type=\"checkbox\"]");
