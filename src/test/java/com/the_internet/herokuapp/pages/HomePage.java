@@ -1,6 +1,5 @@
 package com.the_internet.herokuapp.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +12,8 @@ public class HomePage extends BasePage {
     @FindBy(tagName = "h1")
     WebElement pageTitle;
 
+    @FindBy(tagName = "h2")
+    WebElement subheader;
 
     @FindBy(xpath = "//*[@id=\"content\"]/ul/li")
     List<WebElement> allSubPages;
@@ -32,6 +33,10 @@ public class HomePage extends BasePage {
 
     public int getNumSubPages() {
         return allSubPages.size();
+    }
+
+    public String getSubheaderText() {
+        return subheader.getText();
     }
 
     public List<String> getSubPageNames() {
