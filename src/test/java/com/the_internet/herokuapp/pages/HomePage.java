@@ -10,22 +10,15 @@ import java.util.List;
 
 public class HomePage extends BasePage {
 
-    private static final By anchorLocator = By.tagName("a");
-
     @FindBy(xpath = "//*[@id=\"content\"]/ul/li")
     List<WebElement> allSubPages;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/ul/li//a")
+    List<WebElement> allSubPageLinks;
 
     public HomePage() {
         super();
         PageFactory.initElements(driver, this);
-    }
-
-    private List<WebElement> getAllSubPageLinks() {
-        List<WebElement> pageLinks = new ArrayList<>();
-        for (WebElement page : allSubPages) {
-            pageLinks.add(page.findElement(anchorLocator));
-        }
-        return pageLinks;
     }
 
     public int getNumSubPages() {
@@ -42,7 +35,7 @@ public class HomePage extends BasePage {
     }
 
     public void clickOnPageLink(String pageName) {
-        for (WebElement subPage : getAllSubPageLinks()) {
+        for (WebElement subPage : allSubPageLinks) {
             if (subPage.getText().startsWith(pageName)) {
                 subPage.click();
                 break;
