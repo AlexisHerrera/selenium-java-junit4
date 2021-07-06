@@ -13,6 +13,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Objects;
+
 import static org.junit.Assert.assertEquals;
 
 public class CommonSteps {
@@ -51,7 +53,7 @@ public class CommonSteps {
 
     @Then("the page title is {string}")
     public void verifyPageTitle(String expectedText) {
-        String actual = getPage().getPageTitleText();
+        String actual = Objects.requireNonNull(getPage()).getPageTitleText();
         assertEquals(expectedText, actual);
     }
 
