@@ -10,6 +10,7 @@ import java.util.List;
 
 public class DynamicControlsPage extends BasePage {
 
+    private static final By pageTitleLocator = By.tagName("h4");
     private static final By contentLocator = By.className("example");
     private static final By paragraphLocator = By.tagName("p");
     private static final By sectionHeaderLocator = By.className("subheader");
@@ -23,6 +24,10 @@ public class DynamicControlsPage extends BasePage {
     private static final By loadingBarLocator = By.id("loading");
     private static final By messageLocator = By.id("message");
     private static final String buttonByTextXpath = "//button[text()=\"%s\"]";
+
+    private WebElement getPageTitle() {
+        return driver.findElement(pageTitleLocator);
+    }
 
     private WebElement getParagraph() {
         return driver.findElement(paragraphLocator);
@@ -97,6 +102,11 @@ public class DynamicControlsPage extends BasePage {
 
     private WebElement getMessage() {
         return driver.findElement(messageLocator);
+    }
+
+    @Override
+    public String getPageTitleText() {
+        return getPageTitle().getText();
     }
 
     public String getOpeningParagraphText() {

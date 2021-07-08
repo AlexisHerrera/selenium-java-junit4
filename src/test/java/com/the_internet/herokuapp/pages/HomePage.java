@@ -8,23 +8,42 @@ import java.util.List;
 
 public class HomePage extends BasePage {
 
+    private static final By pageTitleLocator = By.tagName("h1");
+    private static final By subheaderLocator = By.tagName("h2");
     private static final By subPageListLocator = By.xpath("//*[@id=\"content\"]/ul");
+
+    private WebElement getPageTitle() {
+        return driver.findElement(pageTitleLocator);
+    }
+
+    private WebElement getSubheader() {
+        return driver.findElement(subheaderLocator);
+    }
 
     private WebElement getSubPageList() {
         return driver.findElement(subPageListLocator);
     }
 
-    public List<WebElement> getAllSubPageListElements() {
+    private List<WebElement> getAllSubPageListElements() {
         return getSubPageList().findElements(listElementLocator);
     }
 
-    public List<WebElement> getAllSubPageLinks() {
+    private List<WebElement> getAllSubPageLinks() {
         List<WebElement> pageList = getAllSubPageListElements();
         List<WebElement> pageLinks = new ArrayList<>();
         for (WebElement page : pageList) {
             pageLinks.add(page.findElement(anchorLocator));
         }
         return pageLinks;
+    }
+
+    @Override
+    public String getPageTitleText() {
+        return getPageTitle().getText();
+    }
+
+    public String getSubheaderText() {
+        return getSubheader().getText();
     }
 
     public int getNumSubPages() {

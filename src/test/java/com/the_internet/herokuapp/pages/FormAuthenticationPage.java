@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 
 public class FormAuthenticationPage extends BasePage {
 
+    private static final By pageTitleLocator = By.tagName("h2");
     private static final By openingParagraphLocator = By.className("subheader");
     private static final By usernameInputLocator = By.id("username");
     private static final By passwordInputLocator = By.id("password");
@@ -12,6 +13,10 @@ public class FormAuthenticationPage extends BasePage {
     private static final By loginButtonLocator = By.xpath("//button[@type=\"submit\"]");
     private static final By messageBannerLocator = By.id("flash");
     private static final By logoutButtonLocator = By.className("button");
+
+    private WebElement getPageTitle() {
+        return driver.findElement(pageTitleLocator);
+    }
 
     private WebElement getOpeningParagraph() {
         return driver.findElement(openingParagraphLocator);
@@ -43,6 +48,11 @@ public class FormAuthenticationPage extends BasePage {
 
     private WebElement getLogoutButton() {
         return driver.findElement(logoutButtonLocator);
+    }
+
+    @Override
+    public String getPageTitleText() {
+        return getPageTitle().getText();
     }
 
     public String getOpeningParagraphText() {

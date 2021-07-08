@@ -9,8 +9,13 @@ import java.util.List;
 
 public class DropdownPage extends BasePage {
 
+    private static final By pageTitleLocator = By.tagName("h3");
     private static final By dropdownListLocator = By.id("dropdown");
     private static final By genericDropdownListLocator = By.tagName("select");
+
+    private WebElement getPageTitle() {
+        return driver.findElement(pageTitleLocator);
+    }
 
     private Select getDropdownList() {
         return new Select(driver.findElement(dropdownListLocator));
@@ -18,6 +23,11 @@ public class DropdownPage extends BasePage {
 
     private List<WebElement> getAllDropdownLists() {
         return driver.findElements(genericDropdownListLocator);
+    }
+
+    @Override
+    public String getPageTitleText() {
+        return getPageTitle().getText();
     }
 
     public int getNumDropdownLists() {
