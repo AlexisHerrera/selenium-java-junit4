@@ -25,28 +25,8 @@ public abstract class BasePage {
     protected static final By anchorLocator = By.tagName("a");
     protected static final By imageLocator = By.tagName("img");
     protected static final By parentLocator = By.xpath("./..");
-    private static final By header1Locator = By.tagName("h1");
-    private static final By header2Locator = By.tagName("h2");
-    private static final By header3Locator = By.tagName("h3");
-    private static final By header4Locator = By.tagName("h4");
     private static final By forkLinkLocator = By.xpath("/html/body/div[2]/a");
     private static final By footerLocator = By.id("page-footer");
-
-    public static String getHeaderText() {
-        return driver.findElement(header1Locator).getText();
-    }
-
-    public static String getHeader2Text() {
-        return driver.findElement(header2Locator).getText();
-    }
-
-    private static String getHeader3Text() {
-        return driver.findElement(header3Locator).getText();
-    }
-
-    private static String getHeader4Text() {
-        return driver.findElement(header4Locator).getText();
-    }
 
     private static WebElement getGitHubForkLink() {
         return driver.findElement(forkLinkLocator);
