@@ -21,10 +21,8 @@ public abstract class BasePage {
             Map.entry("inputs", BASE_URL + "/inputs"),
             Map.entry("secure area", BASE_URL + "/secure")
     );
-    protected static final By listElementLocator = By.tagName("li");
     protected static final By anchorLocator = By.tagName("a");
     protected static final By imageLocator = By.tagName("img");
-    protected static final By parentLocator = By.xpath("./..");
     private static final By forkLinkLocator = By.xpath("/html/body/div[2]/a");
     private static final By footerLocator = By.id("page-footer");
 

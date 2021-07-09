@@ -19,6 +19,7 @@ public class DynamicControlsPage extends BasePage {
     private static final By inputExampleFormLocator = By.id("input-example");
     private static final By checkboxLocator = By.xpath("//input[@type=\"checkbox\"]");
     private static final By inputLocator = By.xpath("//input[@type=\"text\"]");
+    private static final By parentLocator = By.xpath("./..");
     private static final By buttonLocator = By.tagName("button");
     private static final By alternativeCheckboxLocator = By.id("checkbox");
     private static final By loadingBarLocator = By.id("loading");

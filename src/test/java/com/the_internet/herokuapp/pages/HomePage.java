@@ -11,6 +11,7 @@ public class HomePage extends BasePage {
     private static final By pageTitleLocator = By.tagName("h1");
     private static final By subheaderLocator = By.tagName("h2");
     private static final By subPageListLocator = By.xpath("//*[@id=\"content\"]/ul");
+    private static final By listElementLocator = By.tagName("li");
 
     private WebElement getPageTitle() {
         return driver.findElement(pageTitleLocator);
