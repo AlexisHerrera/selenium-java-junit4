@@ -48,14 +48,15 @@ The project uses a standard structure and naming convention, incorporating the U
 * `DriverManager.java` - setup the driver, based on the selected browser, using the [WebDriverManager](https://github.com/bonigarcia/webdrivermanager) extension.
 * `TestRunner.java` - the main JUnit test runner class, decorated with the annotation required to run Cucumber tests. The class itself is empty but the `CucumberOptions` annotation defines the location of the features and associated steps.
 
-### Page Object Model & Locators
+### Page Object Model Classes
 As noted above, the `pages` folder contains the relevant Page Object Model classes for each tested page. Each page class, including the abstract `BasePage` class, follows the same pattern:
-* private locators declared as `By`s
-* private getter methods for each element to be interacted with, using the above locators
+* private selectors/locators declared as `By` types e.g. `By.id`
+* private getter methods for each element to be interacted with, using the above selectors
 * public interaction methods e.g. to click on an element, get an element’s text etc.
-  This way we encapsulate the web elements themselves, only allowing the interactions that have been implemented via public methods, ensuring the tests (in effect, the user) can only interact with the web page in known ways.
+  
+This way we encapsulate the web elements themselves, only allowing the interactions that have been implemented via public methods, ensuring the tests (in effect, the user) can only interact with the web page in known ways.
 
-The abstract `BasePage` class defines constants for the URL for each page and the WebDriver that is key to automatically interacting with the browser, ensuring they are available to methods within each individual page class. Also declared in the base class are a couple of protected common locators for elements used on multiple pages to avoid the need to declare the locator in each page class (following the DRY principle). Public interaction methods for the page header and footer are declared in the `BasePage` class too, again to reduce code duplication. In order to get round the fact that the title element on the tested pages doesn’t use a consistent HTML tag or class, a public abstract `getPageTitleText` method is declared in the `BasePage` class ensuring that each individual page class implements a method to get the text of the page title, using a locator specific to whatever to that page’s HTML.
+The abstract `BasePage` class defines constants for the URL for each page and the WebDriver that is key to automatically interacting with the browser, ensuring they are available to methods within each individual page class. Also declared in the base class are a couple of protected common locators for elements used on multiple pages to avoid the need to declare the locator in each page class (following the DRY principle). Public interaction methods for the page header and footer are declared in the `BasePage` class too, again to reduce code duplication. In order to get round the fact that the title element on the tested pages doesn’t use a consistent HTML tag or class, a public abstract `getPageTitleText` method is declared in the `BasePage` class ensuring that each individual page class implements a method to get the text of the page title, using a locator specific to whatever to that page’s HTML uses for the title.
 
 Note there are no assertions in the page classes as assertions are a test action rather than a page action. Page interaction methods will return the result of that interaction, such as the attribute or text value, to the calling method in the test steps classes, so that it can be asserted as correct there. In other words, we maintain independence between the tests and the pages.
 
