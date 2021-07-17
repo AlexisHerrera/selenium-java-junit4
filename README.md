@@ -1,7 +1,7 @@
-# UI Testing with Selenium (Java) & Page Object Model - Boilerplate
+# UI Testing with Selenium Java & Junit4 - Page Object Model
 
 ## Overview
-This project provides a boilerplate for testing a UI with Selenium WebDriver, written in Java, using the Page Object Model design pattern and driven via Cucumber BDD feature files. It can be used to kickstart testing of other UIs with minimal changes to the project.
+This project provides an example for testing a UI with Selenium WebDriver, written in Java with JUnit4, using the Page Object Model design pattern and driven via Cucumber BDD ifeature files. It can be used to kickstart testing of other UIs with minimal changes to the project.
 
 NB This is not a complete implementation of a Selenium test suite for the target UI. It is an example of how to structure a Selenium test suite in Java but only a subset of the possible tests have been added.
 
@@ -17,10 +17,10 @@ Only a subset of the available functionality has been tested, focusing on the fo
 * [Dropdown](http://the-internet.herokuapp.com/dropdown)
 * [Dynamic Controls](http://the-internet.herokuapp.com/dynamic_controls)
 * [Form Authentication](http://the-internet.herokuapp.com/login)
-  That is sufficient to provide a demonstration of the main interaction and verification methods in Selenium while keeping the project size small enough to act as a boilerplate.
+  That is sufficient to provide a demonstration of the main interaction and verification methods in Selenium while keeping the project size small enough to act as a template.
 
 ## Test Framework
-As stated above, this project contains a Selenium Java test framework, implements the Page Object Model design pattern and utilises Cucumber BDD. As such it follows many test automation best practices. The Page Object Model means that each individual webpage has its own class, each containing the methods specific to controls on that page. Thus each page is independent and separate from the tests, meaning any changes to the page are isolated to only the corresponding page class. This makes for code that is cleaner, easier to read and maintain, and contains less duplication. The use of Cucumber means the tests themselves are also clean and clear, written in plain English so they can be understood by anyone working with the project, including non-technical roles. Although this is merely a boilerplate project showing an example of how to set up Selenium for UI testing in Java, in a real-life project the use of BDD is essential for collaboration between QAs, developers, and business roles (e.g. Product Owners, Business Analysts etc). Quality is everyone’s responsibility, which means the tests themselves need to be easily understood by all stakeholders.
+As stated above, this project contains a Selenium Java test framework, implements the Page Object Model design pattern and utilises Cucumber BDD. As such it follows many test automation best practices. The Page Object Model means that each individual webpage has its own class, each containing the methods specific to controls on that page. Thus each page is independent and separate from the tests, meaning any changes to the page are isolated to only the corresponding page class. This makes for code that is cleaner, easier to read and maintain, and contains less duplication. The use of Cucumber means the tests themselves are also clean and clear, written in plain English so they can be understood by anyone working with the project, including non-technical roles. Although this project is just an example of how to set up Selenium for UI testing in Java, in a real-life project the use of BDD is essential for collaboration between QAs, developers, and business roles (e.g. Product Owners, Business Analysts etc). Quality is everyone’s responsibility, which means the tests themselves need to be easily understood by all stakeholders.
 
 ### Tech stack
 As this is a Java project, build and dependency management is handled by Maven, so there is a `pom.xml` file defining the versions of the dependencies:
@@ -86,6 +86,7 @@ A report is generated for each test run, using the Cucumber `pretty` plugin to p
 This repo contains a CI pipeline implemented using [GitHub Actions](https://github.com/features/actions). Any push to the `master` branch or any pull request on the `master` branch will trigger the pipeline, which runs in a Linux VM on the cloud within GitHub. The pipeline consists of two separate jobs which run in parallel:
 * `run-tests-on-chrome`
 * `run-tests-on-firefox`
-  Each job checks out the repo then runs the test suite on Chrome/Firefox via `mvn test -Dbrowser=chrome` or `mvn test -Dbrowser=firefox`. If a test fails, that job will upload the test report as a GitHub artifact. At the end of the steps the environment tears itself down and produces a [status report](https://github.com/mathare/boilerplate-selenium-java/actions).
+  
+Each job checks out the repo then runs the test suite on Chrome/Firefox via `mvn test -Dbrowser=chrome` or `mvn test -Dbrowser=firefox`. If a test fails, that job will upload the test report as a GitHub artifact. At the end of the steps the environment tears itself down and produces a [status report](https://github.com/mathare/selenium-java-junit4/actions).
 
-In addition to the automated triggers above, the CI pipeline has a manual trigger actionable by clicking "Run workflow" on the [Continuous Integration](https://github.com/mathare/boilerplate-selenium-java/actions/workflows/ci.yml) page. This allows the user to select the branch to run the pipeline on, so tests can be run on a branch without the need for a pull request. This option is only visible if you are the repo owner.
+In addition to the automated triggers above, the CI pipeline has a manual trigger actionable by clicking "Run workflow" on the [Continuous Integration](https://github.com/mathare/selenium-java-junit4/actions/workflows/ci.yml) page. This allows the user to select the branch to run the pipeline on, so tests can be run on a branch without the need for a pull request. This option is only visible if you are the repo owner.
