@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 
 public class CommonSteps {
 
-    String page;
+    private String page;
 
     @Before
     public void setup() {

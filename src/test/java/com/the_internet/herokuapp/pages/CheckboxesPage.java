@@ -11,7 +11,6 @@ public class CheckboxesPage extends BasePage {
     private static final By pageTitleLocator = By.tagName("h3");
     private static final By checkboxesFormLocator = By.id("checkboxes");
     private static final By checkboxLocator = By.tagName("input");
-    private static final By checkboxLabelLocator = By.xpath("text()");
 
     private WebElement getPageTitle() {
         return driver.findElement(pageTitleLocator);
