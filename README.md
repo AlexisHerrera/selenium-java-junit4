@@ -1,5 +1,4 @@
-[![Continuous Integration Status](https://github.com/mathare/selenium-java-junit4/actions/workflows/ci.yml/badge.svg)](https://github.com/mathare/selenium-java-junit4/actions)
-
+[![Continuous Integration](https://github.com/AlexisHerrera/selenium-java-junit4/actions/workflows/ci.yml/badge.svg)](https://github.com/AlexisHerrera/selenium-java-junit4/actions/workflows/ci.yml)
 # UI Testing with Selenium Java & Junit4 - Page Object Model
 
 ## Overview
